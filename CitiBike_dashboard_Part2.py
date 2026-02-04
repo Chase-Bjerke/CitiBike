@@ -114,10 +114,7 @@ st.components.v1.html(html_data, height=1000)
 ###########################################  NYC CitiBike Trip Duration (Filtered to ~1–65 Minutes)
 ####################################################################
 
-# Sample of data
-sample = tripdur_focus.sample(n=500000
-
-                              # Box plot
+# Box plot
 
 fig = px.box(
     sample,
