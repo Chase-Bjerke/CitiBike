@@ -3,6 +3,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 from datetime import datetime as dt
@@ -109,3 +110,28 @@ with open(path_to_html, 'r') as f:
 
 ## Show in webpage
 st.components.v1.html(html_data, height=1000)
+
+###########################################  NYC CitiBike Trip Duration (Filtered to ~1–65 Minutes)
+####################################################################
+
+# Box plot
+
+fig = px.box(
+    sample,
+    x="member_casual",
+    y="tripduration",
+    color="member_casual",
+    points="outliers",
+    color_discrete_sequence=["blue", "orange"],
+    title="Trip Duration (Filtered to ~1–65 Minutes)"
+)
+
+fig.update_layout(
+    xaxis_title="User Type",
+    yaxis_title="Trip Duration (minutes)",
+    showlegend=False,
+    height=500,
+    width=900
+)
+
+st.plotly_chart(fig, use_container_width=True)
