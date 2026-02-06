@@ -10,7 +10,8 @@ from datetime import datetime as dt
 
 ################################################ Dashboard Setup ################################################
 
-# Dashboard configuring
+## Dashboard configuring
+# ---------------------------------------------------------
 st.set_page_config(page_title="CitiBike Strategy Dashboard", layout="wide")
 st.title("CitiBike Strategy Dashboard")
 st.markdown("This dashboard provides insights into NYC CitiBike usage patterns, "
@@ -23,8 +24,10 @@ page = st.sidebar.radio(
 )
 
 ################################################ Import Prepared data ################################################
-
+## Imports
+# ---------------------------------------------------------
 daily_df = pd.read_csv("02_Data/Prepared_Data/daily_sub_df.csv")
+
 top_stations_df = pd.read_csv("02_Data/Prepared_Data/top_stations_df.csv")
 
 ################################################ DEFINE THE PAGES ################################################
@@ -32,9 +35,9 @@ top_stations_df = pd.read_csv("02_Data/Prepared_Data/top_stations_df.csv")
 
 ################################################ CitiBike Strategy Overview Page ################################################
 
-# Overview Page
-
-## Setup sidebar link
+## Overview Page
+# ---------------------------------------------------------
+# Setup sidebar link
 if page == "Overview":
     st.markdown("""
 
@@ -51,30 +54,44 @@ if page == "Overview":
 
 ################################################ CitiBike NYC Daily Rides vs Temperature Chart ################################################
 
-# Dual-Axis Chart
+## Dual-Axis Chart
+# ---------------------------------------------------------
 
-### Setup sidebar link
+# Setup sidebar link
 elif page == "Daily Rides vs Weather":
     st.header("Daily Rides and Temperature Trends")
 
-    ### Insights of the chart
+    # Insights of the chart
+    # ---------------------------------------------------------
     st.markdown("""
 
     need to write something
      
      """)
+    
+    # Seasonal Filter (Note: This applies only to this chart.)
+    # ---------------------------------------------------------
+    with st.sidebar:
+        st.markdown("### Filter by Season")
+        season_filter = st.multiselect(
+            label="Select season(s)",
+            options=daily_df['season'].unique(),     # Winter, Spring, Summer, Fall
+            default=daily_df['season'].unique()      # All selected by default
+        )
 
-    ### Plot
-    st.header("Daily Rides and Temperature Trends")
-
+    # Filter the dataframe based on user selection
+    df_filtered = daily_df.query("season == @season_filter")
+    
+    # Plot Chart
+    # ---------------------------------------------------------
     # Create a subplot with two y-axes
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 
     # Add the daily bike rides line (left y-axis)
     fig.add_trace(
         go.Scatter(
-            x=daily_df["date"],
-            y=daily_df["bike_rides_daily"],
+            x=df_filtered["date"],
+            y=df_filtered["bike_rides_daily"],
             name="Daily Bike Rides",
             line=dict(color="blue")
         ),
@@ -84,8 +101,8 @@ elif page == "Daily Rides vs Weather":
     # Add the average temperature line (right y-axis)
     fig.add_trace(
         go.Scatter(
-            x=daily_df["date"],
-            y=daily_df["avgTemp"],
+            x=df_filtered["date"],
+            y=df_filtered["avgTemp"],
             name="Average Temperature (°F)",
             line=dict(color="orange")
         ),
@@ -112,40 +129,44 @@ elif page == "Daily Rides vs Weather":
 ################################################ CitiBike NYC: Trip Duration by Rider Type (1–65 Minutes) ################################################
 
 ## Box Plot
-
-### Setup sidebar link
+# ---------------------------------------------------------
+# Setup sidebar link
 elif page == "Trip Duration":
     st.header("Trip Duration by Rider Type")
 
-    ### Insights of the chart
+    # Insights of the chart
+    # ---------------------------------------------------------
     st.markdown("""
 
     Need to write something
      
          """)
 
-    ### Display Box Plot chart image
+    # Display Box Plot chart image
+    # ---------------------------------------------------------
     st.image("04_Analysis/Visualizations/tripduration_boxplot_static.png", use_container_width=True)
 
 ################################################ CitiBike NYC Top Stations Chart ################################################
 
-# Bar Chart
-
-### Setup sidebar link 
+## Bar Chart
+# ---------------------------------------------------------
+# Setup sidebar link 
 elif page == "Top Stations":
     st.header("Top 20 Most Popular CitiBike Stations in NYC")
 
-    ### Insights of the chart
+    # Insights of the chart
+    # ---------------------------------------------------------
     st.markdown("""
 
     Need to write something
      
          """)
 
-    ### Sort ascending for horizontal bars 
+    # Sort ascending for horizontal bars
     top20 = top_stations_df.sort_values("value", ascending=True)
 
-    #### Build chart
+    # Plot chart
+    # ---------------------------------------------------------
     fig = go.Figure(go.Bar(
         x=top20["value"],
         y=top20["start_station_name"],
@@ -169,13 +190,14 @@ elif page == "Top Stations":
 
 ################################################ CitiBike NYC Trip Hotspots (500 Busiest Routes) ################################################
 
-# Trip Flow Map
-
-### Setup sidebar link
+## Trip Flow Map
+# ---------------------------------------------------------
+# Setup sidebar link
 elif page == "Trip Hotspots":
     st.subheader("NYC CitiBike – Top 500 Trip Flows")
 
-    ### Insights of the chart
+    # Insights of the chart
+    # ---------------------------------------------------------
     st.markdown("""
 
     Need to write something
@@ -188,17 +210,18 @@ elif page == "Trip Hotspots":
 
 
     # Read file and keep in variable
+    # ---------------------------------------------------------
     with open(path_to_html, 'r') as f:
         html_data = f.read()
 
-    ## Show in webpage
+    # Show in webpage
     st.components.v1.html(html_data, height=1000)
 
 ################################################ Recommendations Page ################################################
 
-# Recommendations Page
-
-### Setup sidebar link
+## Recommendations Page
+# ---------------------------------------------------------
+# Setup sidebar link
 elif page == "Recommendations":
     st.header("Recommendations")
 
