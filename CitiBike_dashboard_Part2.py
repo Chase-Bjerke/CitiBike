@@ -71,13 +71,12 @@ elif page == "Daily Rides vs Weather":
     
     # Seasonal Filter (Note: This applies only to this chart.)
     # ---------------------------------------------------------
-    with st.sidebar:
-        st.markdown("### Filter by Season")
-        season_filter = st.multiselect(
-            label="Select season(s)",
-            options=daily_df['season'].unique(),     # Winter, Spring, Summer, Fall
-            default=daily_df['season'].unique()      # All selected by default
-        )
+    st.sidebar.markdown("### Filter by Season")
+    season_filter = st.sidebar.multiselect(
+        label="Select season(s)",
+        options=daily_df['season'].unique(),
+        default=daily_df['season'].unique()
+    )
 
     # Filter the dataframe based on user selection
     df_filtered = daily_df.query("season == @season_filter")
