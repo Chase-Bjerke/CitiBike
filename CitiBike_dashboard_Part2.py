@@ -39,9 +39,15 @@ top_stations_df = pd.read_csv("02_Data/Prepared_Data/top_stations_df.csv")
 # ---------------------------------------------------------
 # Setup sidebar link
 if page == "Overview":
-    st.markdown("""
-## CitiBike Strategy Dashboard
 
+    st.markdown("## CitiBike Strategy Dashboard")
+
+    st.image(
+        "04_Analysis/Visualizations/green_light_bike.jpg",
+        use_column_width=True
+    )
+
+    st.markdown("""
 This dashboard provides a descriptive analysis of New York City’s Citi Bike system, enabling the business strategy team to understand current usage patterns and identify opportunities to enhance bike availability throughout the city.
 
 ### Project Objective
@@ -72,12 +78,8 @@ The analysis is organized into several pages, each focusing on a key aspect of s
 - **Recommendations**  
   Summarizes opportunities to improve distribution, expand capacity, and support future growth.
 
-Use the **Navigate to** in the sidebar to navigate between sections.
-    """)
-
-    # Image
-    # ---------------------------------------------------------
-    st.image("04_Analysis/Visualizations/green_light_bike.jpg")
+Use the **Navigate to** in the sidebar to move between sections.
+""")
 
 
 ################################################ CitiBike NYC Daily Rides vs Temperature Chart ################################################
