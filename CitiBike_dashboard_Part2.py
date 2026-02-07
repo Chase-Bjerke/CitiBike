@@ -78,7 +78,7 @@ if page == "Overview":
     # --------------------------------
     # INTRO 
     # --------------------------------
-    intro_left, intro_center, intro_right = st.columns([0.22, 1.35, 0.43])
+    intro_left, intro_center, intro_right = st.columns([0.18, 1.65, 0.17])
     with intro_center:
         st.markdown("""
 This dashboard provides a descriptive analysis of New York City’s Citi Bike system, enabling the business strategy team to understand current usage patterns and identify opportunities to enhance bike availability throughout the city.
