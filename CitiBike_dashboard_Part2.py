@@ -64,10 +64,10 @@ Understanding these patterns is essential for improving system reliability and e
 
     with col_img:
         st.markdown(
-            "<div style='text-align:center; padding-top:40%;'>",
+            "<div style='text-align:center; padding-top:55%;'>",
             unsafe_allow_html=True
         )
-        st.image("04_Analysis/Visualizations/green_light_bike.jpg", width=260)
+        st.image("04_Analysis/Visualizations/green_light_bike.jpg", width=420)
         st.markdown("</div>", unsafe_allow_html=True)
 
     # Next section
@@ -91,9 +91,8 @@ The analysis is organized into several pages, each focusing on a key aspect of s
   Summarizes opportunities to improve distribution, expand capacity, and support future growth.
 
 Use the **Navigate to** in the sidebar to move between sections.
-""")   
-
-
+""")
+ 
 ################################################ CitiBike NYC Daily Rides vs Temperature Chart ################################################
 
 ## Dual-Axis Chart
