@@ -37,18 +37,19 @@ top_stations_df = pd.read_csv("02_Data/Prepared_Data/top_stations_df.csv")
 # Setup sidebar link
 if page == "Overview":
 
-    st.markdown(
-    """
-    <div style='text-align:center;'>
-        <img src='04_Analysis/Visualizations/green_light_bike.jpg'
-             style='width:300px; max-height:150px; object-fit:cover; border-radius:6px;'/>
-    </div>
-    """,
-    unsafe_allow_html=True
-    )
+    # Two-column layout for image + title
+    col1, col2 = st.columns([1, 3])   # adjust ratios if needed
 
-    #---------------------------------------------------------
-    st.markdown("## CitiBike Strategy Dashboard")
+    with col1:
+        st.image(
+            "04_Analysis/Visualizations/green_light_bike.jpg",
+            width=150   # small, controlled footprint
+        )
+
+    with col2:
+        st.markdown("## CitiBike Strategy Dashboard")
+
+    # ---------------------------------------------------------
 
     st.markdown("""
 This dashboard provides a descriptive analysis of New York City’s Citi Bike system, enabling the business strategy team to understand current usage patterns and identify opportunities to enhance bike availability throughout the city.
