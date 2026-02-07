@@ -36,13 +36,11 @@ top_stations_df = pd.read_csv("02_Data/Prepared_Data/top_stations_df.csv")
 # ---------------------------------------------------------
 if page == "Overview":
 
-    # -------------------------------
-    # Center stack of: title + image + intro
-    # -------------------------------
-    hero_left, hero_center, hero_right = st.columns([0.6, 1, 0.9])
-
-    with hero_center:
-        # Title
+    # --------------------------------
+    # TITLE 
+    # --------------------------------
+    title_left, title_center, title_right = st.columns([0.45, 1, 0.55])
+    with title_center:
         st.markdown(
             """
             <h1 style='
@@ -51,13 +49,17 @@ if page == "Overview":
                 margin-top:0px;
                 margin-bottom:10px;
             '>
-            CitiBike Strategy Dashboard
+                CitiBike Strategy Dashboard
             </h1>
             """,
             unsafe_allow_html=True
         )
 
-        # Image
+    # --------------------------------
+    # IMAGE
+    # --------------------------------
+    img_left, img_center, img_right = st.columns([1, 2, 1])
+    with img_center:
         st.markdown(
             """
             <div style='
@@ -70,20 +72,21 @@ if page == "Overview":
             """,
             unsafe_allow_html=True
         )
-        st.image(
-            "04_Analysis/Visualizations/green_light_bike.jpg",
-            width=450
-        )
+        st.image("04_Analysis/Visualizations/green_light_bike.jpg", width=450)
         st.markdown("</div>", unsafe_allow_html=True)
 
-        # Intro sentence
+    # --------------------------------
+    # INTRO
+    # --------------------------------
+    intro_left, intro_center, intro_right = st.columns([0.45, 1, 0.55])
+    with intro_center:
         st.markdown("""
 This dashboard provides a descriptive analysis of New York City’s Citi Bike system, enabling the business strategy team to understand current usage patterns and identify opportunities to enhance bike availability throughout the city.
 """)
 
-    # -------------------------------
-    # Two-column main content
-    # -------------------------------
+    # --------------------------------
+    # TWO-COLUMN MAIN CONTENT
+    # --------------------------------
     col_left, col_right = st.columns([1, 1.3])
 
     with col_left:
