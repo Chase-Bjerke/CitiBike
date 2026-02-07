@@ -39,19 +39,21 @@ if page == "Overview":
     # -------------------------------
     # Title
     # -------------------------------
-    st.markdown(
-        """
-        <h1 style='
-            text-align:center;
-            font-size:42px;
-            margin-top:0px;
-            margin-bottom:5px;
-        '>
-        CitiBike Strategy Dashboard
-        </h1>
-        """,
-        unsafe_allow_html=True
-    )
+    title_left, title_center, title_right = st.columns([1, 2, 1])
+    with title_center:
+        st.markdown(
+            """
+            <h1 style='
+                text-align:center;
+                font-size:46px;
+                margin-top:0px;
+                margin-bottom:10px;
+            '>
+            CitiBike Strategy Dashboard
+            </h1>
+            """,
+            unsafe_allow_html=True
+        )
 
     # -------------------------------
     # Centered image
