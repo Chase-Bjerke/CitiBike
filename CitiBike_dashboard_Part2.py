@@ -13,9 +13,6 @@ from datetime import datetime as dt
 ## Dashboard configuring
 # ---------------------------------------------------------
 st.set_page_config(page_title="CitiBike Strategy Dashboard", layout="wide")
-st.title("CitiBike Strategy Dashboard")
-st.markdown("This dashboard provides insights into NYC CitiBike usage patterns, "
-    "popular stations, and the relationship between ridership and weather.")
 
 # Sidebar navigation
 page = st.sidebar.radio(
@@ -40,10 +37,15 @@ top_stations_df = pd.read_csv("02_Data/Prepared_Data/top_stations_df.csv")
 # Setup sidebar link
 if page == "Overview":
 
-    # Image centered, smaller image at the top
-    st.markdown("<div style='text-align:center;'>", unsafe_allow_html=True)
-    st.image("04_Analysis/Visualizations/green_light_bike.jpg", width=450)
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown(
+    """
+    <div style='text-align:center;'>
+        <img src='04_Analysis/Visualizations/green_light_bike.jpg'
+             style='width:300px; max-height:150px; object-fit:cover; border-radius:6px;'/>
+    </div>
+    """,
+    unsafe_allow_html=True
+    )
 
     #---------------------------------------------------------
     st.markdown("## CitiBike Strategy Dashboard")
