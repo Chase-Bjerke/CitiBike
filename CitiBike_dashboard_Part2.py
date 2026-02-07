@@ -57,19 +57,20 @@ This dashboard provides a descriptive analysis of New York City’s Citi Bike sy
     # Centered image below intro
     # -------------------------------
     st.markdown(
-        "<div style='text-align:center;'>",
+        "<div style='text-align:center; margin-top:10px; margin-bottom:20px;'>",
         unsafe_allow_html=True
     )
     st.image(
         "04_Analysis/Visualizations/green_light_bike.jpg",
-        width=380
+        width=420   # increased size
     )
     st.markdown("</div>", unsafe_allow_html=True)
 
     # -------------------------------
     # Two-column main content
+    # Right column widened for readability
     # -------------------------------
-    col_left, col_right = st.columns([1, 1])
+    col_left, col_right = st.columns([1, 1.3])
 
     with col_left:
         st.markdown("""
