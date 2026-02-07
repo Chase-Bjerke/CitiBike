@@ -37,13 +37,12 @@ top_stations_df = pd.read_csv("02_Data/Prepared_Data/top_stations_df.csv")
 if page == "Overview":
 
     # -------------------------------
-    # Stack and centered: title + image + intro
+    # Center stack of: title + image + intro
     # -------------------------------
-    hero_left, hero_center, hero_right = st.columns([1, 3, 1])
+    hero_left, hero_center, hero_right = st.columns([0.6, 1, 0.9])
 
     with hero_center:
         # Title
-        # -------------------------------
         st.markdown(
             """
             <h1 style='
@@ -59,7 +58,6 @@ if page == "Overview":
         )
 
         # Image
-        # -------------------------------
         st.markdown(
             """
             <div style='
@@ -79,7 +77,6 @@ if page == "Overview":
         st.markdown("</div>", unsafe_allow_html=True)
 
         # Intro sentence
-        # -------------------------------
         st.markdown("""
 This dashboard provides a descriptive analysis of New York City’s Citi Bike system, enabling the business strategy team to understand current usage patterns and identify opportunities to enhance bike availability throughout the city.
 """)
