@@ -56,8 +56,8 @@ This dashboard provides a descriptive analysis of New York City’s Citi Bike sy
     # -------------------------------
     col_text, col_img = st.columns([3, 1])
 
-    with col_text:
-        st.markdown("""
+with col_text:
+    st.markdown("""
 ### Project Objective
 As the lead analyst, the goal is to identify where distribution issues originate and provide actionable insights that support informed operational decision-making. The analysis focuses on understanding whether availability problems stem from:
 - uneven station demand  
@@ -69,10 +69,14 @@ As the lead analyst, the goal is to identify where distribution issues originate
 Understanding these patterns is essential for improving system reliability and ensuring riders can consistently find and return bikes across the city.
 """)
 
-    with col_img:
-        st.markdown("<div style='text-align:center; padding-top:20%;'>", unsafe_allow_html=True)
-        st.image("04_Analysis/Visualizations/green_light_bike.jpg", width=140)
-        st.markdown("</div>", unsafe_allow_html=True)
+with col_img:
+    st.markdown(
+        "<div style='text-align:center; padding-top:40%;'>",
+        unsafe_allow_html=True
+    )
+    st.image("04_Analysis/Visualizations/green_light_bike.jpg", width=260)
+    st.markdown("</div>", unsafe_allow_html=True)
+
 
     # -------------------------------
     # Next section (full width again)
