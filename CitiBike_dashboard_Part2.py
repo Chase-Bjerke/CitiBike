@@ -37,24 +37,15 @@ top_stations_df = pd.read_csv("02_Data/Prepared_Data/top_stations_df.csv")
 if page == "Overview":
 
     # -------------------------------
-    # Centered Title
+    # Larger, centered Title
     # -------------------------------
     st.markdown(
-        "<h2 style='text-align:center;'>CitiBike Strategy Dashboard</h2>",
+        "<h1 style='text-align:center; margin-bottom:10px;'>CitiBike Strategy Dashboard</h1>",
         unsafe_allow_html=True
     )
 
     # -------------------------------
-    # Centered, tight intro paragraph
-    # -------------------------------
-    intro_left, intro_center, intro_right = st.columns([1, 2, 1])
-    with intro_center:
-        st.markdown("""
-This dashboard provides a descriptive analysis of New York City’s Citi Bike system, enabling the business strategy team to understand current usage patterns and identify opportunities to enhance bike availability throughout the city.
-""")
-
-    # -------------------------------
-    # Centered image below intro (aligned with intro width)
+    # Centered image (hero visual)
     # -------------------------------
     img_left, img_center, img_right = st.columns([1, 2, 1])
 
@@ -66,18 +57,25 @@ This dashboard provides a descriptive analysis of New York City’s Citi Bike sy
                 justify-content: center;
                 align-items: center;
                 margin-top: 10px;
-                margin-bottom: 25px;
+                margin-bottom: 20px;
             '>
             """,
             unsafe_allow_html=True
         )
-
         st.image(
             "04_Analysis/Visualizations/green_light_bike.jpg",
             width=450
         )
-
         st.markdown("</div>", unsafe_allow_html=True)
+
+    # -------------------------------
+    # Intro paragraph (wider + below image)
+    # -------------------------------
+    intro_left, intro_center, intro_right = st.columns([1, 3, 1])
+    with intro_center:
+        st.markdown("""
+This dashboard provides a descriptive analysis of New York City’s Citi Bike system, enabling the business strategy team to understand current usage patterns and identify opportunities to enhance bike availability throughout the city.
+""")
 
     # -------------------------------
     # Two-column main content
