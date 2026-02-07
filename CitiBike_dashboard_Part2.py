@@ -75,9 +75,9 @@ The analysis is organized into several pages, each focusing on a key aspect of s
 Use the **Navigate to** in the sidebar to navigate between sections.
     """)
 
-    # Video
+    # Image
     # ---------------------------------------------------------
-    st.video("04_Analysis/Visualizations/0_Woman_Phone_3840x2160.mp4")
+    st.image("04_Analysis/Visualizations/green_light_bike.jpg")
 
 
 ################################################ CitiBike NYC Daily Rides vs Temperature Chart ################################################
