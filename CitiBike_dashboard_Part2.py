@@ -56,7 +56,7 @@ This dashboard provides a descriptive analysis of New York City’s Citi Bike sy
     # -------------------------------
     # Centered image below intro
     # -------------------------------
-     st.markdown(
+    st.markdown(
         """
         <div style='
             display: flex;
