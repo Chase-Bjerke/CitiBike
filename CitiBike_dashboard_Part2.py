@@ -40,16 +40,44 @@ top_stations_df = pd.read_csv("02_Data/Prepared_Data/top_stations_df.csv")
 # Setup sidebar link
 if page == "Overview":
     st.markdown("""
+## CitiBike Strategy Dashboard
 
-    need to write something
-         
-    This dashboard explores CitiBike usage patterns in NYC.
-    We'll look at customer behavior, bike distribution, and opportunities
-    for expansion to improve service and sustainability.
+This dashboard provides a descriptive analysis of New York City’s Citi Bike system, enabling the business strategy team to understand current usage patterns and identify opportunities to enhance bike availability throughout the city.
 
+### Project Objective
+As the lead analyst, the goal is to identify where distribution issues originate and provide actionable insights that support informed operational decision-making. The analysis focuses on understanding whether availability problems stem from:
+- uneven station demand  
+- weather-driven fluctuations  
+- trip behavior  
+- geographic hotspots  
+- or a combination of these factors  
 
+Understanding these patterns is essential for improving system reliability and ensuring riders can consistently find and return bikes across the city.
 
+### What This Dashboard Covers
+The analysis is organized into several pages, each focusing on a key aspect of system performance:
+
+- **Most Popular Stations**  
+  Identifies high‑demand hubs and highlights where capacity is consistently strained.
+
+- **Weather and Daily Rides**  
+  Examines how temperature and conditions influence daily trip volume.
+
+- **Trip Duration Patterns**  
+  Explores how long riders typically travel and what that reveals about user behavior.
+
+- **Geographic Hotspots**  
+  Maps where trips cluster across the city to reveal spatial demand patterns.
+
+- **Recommendations**  
+  Summarizes opportunities to improve distribution, expand capacity, and support future growth.
+
+Use the **Navigate to** in the sidebar to navigate between sections.
     """)
+
+    # Video
+    # ---------------------------------------------------------
+    st.video("04_Analysis/Visualizations/0_Woman_Phone_3840x2160.mp4")
 
 
 ################################################ CitiBike NYC Daily Rides vs Temperature Chart ################################################
