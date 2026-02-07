@@ -37,23 +37,27 @@ top_stations_df = pd.read_csv("02_Data/Prepared_Data/top_stations_df.csv")
 # Setup sidebar link
 if page == "Overview":
 
-    # Two-column layout for image + title
-    col1, col2 = st.columns([1, 3])   # adjust ratios if needed
+    # -------------------------------
+    # Title
+    # -------------------------------
+    st.markdown("## CitiBike Strategy Dashboard")
 
-    with col1:
-        st.image(
-            "04_Analysis/Visualizations/green_light_bike.jpg",
-            width=150   # small, controlled footprint
-        )
-
-    with col2:
-        st.markdown("## CitiBike Strategy Dashboard")
-
-    # ---------------------------------------------------------
-
-    st.markdown("""
+    # -------------------------------
+    # Tight intro paragraph (in a narrow column)
+    # -------------------------------
+    intro_col, _ = st.columns([3, 2])   # intro takes ~60% width
+    with intro_col:
+        st.markdown("""
 This dashboard provides a descriptive analysis of New York City’s Citi Bike system, enabling the business strategy team to understand current usage patterns and identify opportunities to enhance bike availability throughout the city.
+""")
 
+    # -------------------------------
+    # Two-column block: text + image
+    # -------------------------------
+    col_text, col_img = st.columns([3, 1])
+
+    with col_text:
+        st.markdown("""
 ### Project Objective
 As the lead analyst, the goal is to identify where distribution issues originate and provide actionable insights that support informed operational decision-making. The analysis focuses on understanding whether availability problems stem from:
 - uneven station demand  
@@ -63,7 +67,17 @@ As the lead analyst, the goal is to identify where distribution issues originate
 - or a combination of these factors  
 
 Understanding these patterns is essential for improving system reliability and ensuring riders can consistently find and return bikes across the city.
+""")
 
+    with col_img:
+        st.markdown("<div style='text-align:center; padding-top:20%;'>", unsafe_allow_html=True)
+        st.image("04_Analysis/Visualizations/green_light_bike.jpg", width=140)
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    # -------------------------------
+    # Next section (full width again)
+    # -------------------------------
+    st.markdown("""
 ### What This Dashboard Covers
 The analysis is organized into several pages, each focusing on a key aspect of system performance:
 
