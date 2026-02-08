@@ -154,16 +154,6 @@ elif page == "Daily Rides vs Weather":
         )
 
     # --------------------------------
-    # CENTERED + SMALLER IMAGE BELOW TITLE
-    # --------------------------------
-    img_left, img_center, img_right = st.columns([1, 2, 1])
-    with img_center:
-        st.image(
-            "04_Analysis/Visualizations/rides_vs_weather.jpg",
-            width=450   # <<< MATCHES OVERVIEW PAGE SCALE
-        )
-
-    # --------------------------------
     # INSIGHTS
     # --------------------------------
     st.markdown("""
@@ -289,22 +279,31 @@ elif page == "Trip Duration":
     # --------------------------------
     col1, col2 = st.columns([2, 1])
 
+    # Left column - Box Plot
     with col1:
         st.image(
             "04_Analysis/Visualizations/tripduration_boxplot_static.png",
             use_column_width=True
         )
 
+    # Right column - Summary
     with col2:
-        st.markdown("""
-        ### Trip Duration Summary (1–65 Minutes)
+        st.markdown(
+            """
+            <div style='text-align:center; margin-bottom:10px;'>
+                <h2 style='margin-bottom:0;'>Trip Duration Summary</h2>
+                <p style='font-size:16px; margin-top:2px; color:#555;'>1–65 Minutes</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
-        - **Median trip duration:** 10.0 minutes   
+        st.markdown("""
+        - **Median trip duration:** 10.0 minutes  
         - **Average trip duration:** 13.3 minutes  
         - **Shortest trip:** 1.0 minute  
         - **Longest trip:** 65.4 minutes  
         """)
-
 
 ################################################ CitiBike NYC Top Stations Chart ################################################
 
