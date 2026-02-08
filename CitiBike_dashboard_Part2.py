@@ -213,7 +213,7 @@ Overall, the chart highlights a clear correlation: as temperatures rise, ridersh
     # ---------------------------------------------------------
     # Image
     # ---------------------------------------------------------
-    st.image("04_Analysis/Visualizations/rides_vs_weather")
+    st.image("04_Analysis/Visualizations/rides_vs_weather.jpg")
     
 
 ################################################ CitiBike NYC: Trip Duration by Rider Type (1–65 Minutes) ################################################
