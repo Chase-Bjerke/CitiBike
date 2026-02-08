@@ -261,7 +261,6 @@ elif page == "Trip Duration":
     # KEY INSIGHTS
     # --------------------------------
     st.markdown("""
-
     Trip duration provides a clear look into CitiBike’s customer behavior and how different rider groups use the system. 
     From the box plot, there is an immediate distinction between Member and Casual riders. Members tend to take shorter, 
     more consistent trips that align with routine, purpose‑driven travel. Casual riders, on the other hand, take longer 
@@ -303,28 +302,67 @@ elif page == "Trip Duration":
         - **Longest trip:** 65.4 minutes  
         """)
 
-
 ################################################ CitiBike NYC Top Stations Chart ################################################
 
 ## Bar Chart
 # ---------------------------------------------------------
 # Setup sidebar link 
 elif page == "Top Stations":
-    st.header("Top 20 Most Popular CitiBike Stations in NYC")
 
-    # Insights of the chart
-    # ---------------------------------------------------------
+    # --------------------------------
+    # TITLE
+    # --------------------------------
+    title_left, title_center, title_right = st.columns([0.38, 1, 0.62])
+    with title_center:
+        st.markdown(
+            """
+            <h1 style='
+                text-align:center;
+                font-size:46px;
+                margin-top:0px;
+                margin-bottom:10px;
+            '>
+                Top 20 Most Popular CitiBike Stations in NYC
+            </h1>
+            """,
+            unsafe_allow_html=True
+        )
+
+    # --------------------------------
+    # IMAGE
+    # --------------------------------
+    img_left, img_center, img_right = st.columns([1, 2, 1])
+    with img_center:
+        st.markdown(
+            """
+            <div style='
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 5px;
+                margin-bottom: 15px;
+            '>
+            """,
+            unsafe_allow_html=True
+        )
+        st.image("04_Analysis/Visualizations/top_stations.jpg")  # let it render full size first
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    # --------------------------------
+    # INSIGHTS
+    # --------------------------------
     st.markdown("""
+    The top 20 CitiBike stations 
+    """)
 
-    Need to write something
-     
-         """)
-
-    # Sort ascending for horizontal bars
+    # --------------------------------
+    # Sort DATA for plotting
+    # --------------------------------
     top20 = top_stations_df.sort_values("value", ascending=True)
 
-    # Plot chart
-    # ---------------------------------------------------------
+    # --------------------------------
+    # PLOT
+    # --------------------------------
     fig = go.Figure(go.Bar(
         x=top20["value"],
         y=top20["start_station_name"],
@@ -343,8 +381,8 @@ elif page == "Top Stations":
         height=600
     )
 
-    # Display in Streamlit
     st.plotly_chart(fig, use_container_width=True)
+
 
 ################################################ CitiBike NYC Trip Hotspots (500 Busiest Routes) ################################################
 
