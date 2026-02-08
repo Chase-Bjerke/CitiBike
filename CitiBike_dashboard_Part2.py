@@ -157,7 +157,6 @@ elif page == "Daily Rides vs Weather":
     # INSIGHTS
     # --------------------------------
     st.markdown("""
-    ### Key Trends
 
     The dual‑axis chart below shows a strong seasonal relationship between temperature and Citi Bike ridership. 
     Warmer days consistently have higher ride volume, while colder seasons see a predictable decline. This pattern 
@@ -279,20 +278,20 @@ elif page == "Trip Duration":
     # --------------------------------
     col1, col2 = st.columns([2, 1])
 
-    # Left column - Box Plot
+    # Left column — Box Plot
     with col1:
         st.image(
             "04_Analysis/Visualizations/tripduration_boxplot_static.png",
             use_column_width=True
         )
 
-    # Right column - Summary
+    # Right column — Summary (centered + tight)
     with col2:
         st.markdown(
             """
             <div style='text-align:center; margin-bottom:10px;'>
-                <h2 style='margin-bottom:0;'>Trip Duration Summary</h2>
-                <p style='font-size:16px; margin-top:2px; color:#555;'>1–65 Minutes</p>
+                <h2 style='margin-bottom:2px;'>Trip Duration Summary</h2>
+                <p style='font-size:18px; margin-top:0px; color:#555;'>(1–65 Minutes)</p>
             </div>
             """,
             unsafe_allow_html=True
@@ -304,6 +303,7 @@ elif page == "Trip Duration":
         - **Shortest trip:** 1.0 minute  
         - **Longest trip:** 65.4 minutes  
         """)
+
 
 ################################################ CitiBike NYC Top Stations Chart ################################################
 
