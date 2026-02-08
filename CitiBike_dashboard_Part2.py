@@ -261,7 +261,6 @@ elif page == "Trip Duration":
     # KEY INSIGHTS
     # --------------------------------
     st.markdown("""
-    ### Key Insights
 
     Trip duration provides a clear look into CitiBike’s customer behavior and how different rider groups use the system. 
     From the box plot, there is an immediate distinction between Member and Casual riders. Members tend to take shorter, 
