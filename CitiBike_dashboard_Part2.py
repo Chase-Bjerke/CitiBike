@@ -127,6 +127,7 @@ Use the **Navigate to** in the sidebar to move between sections.
  
 ################################################ CitiBike NYC Daily Rides vs Temperature Chart ################################################
 
+# ---------------------------------------------------------
 ## Dual-Axis Chart
 # ---------------------------------------------------------
 
@@ -135,11 +136,19 @@ elif page == "Daily Rides vs Weather":
     st.header("Daily Rides and Temperature Trends")
 
     st.markdown("""
-    need to write something
+    Key Trends
+
+The dual‑axis chart below shows a strong seasonal relationship between temperature and Citi Bike ridership. The warmer days consistently have a higher ride volume, whereas colder seasons see a predictable decline. This pattern is especially visible from March through September, when rising temperatures coincide with a steady increase in daily rides.
+
+CitiBike's peak ridership occurs during the late summer and early fall, with September showing both some of the highest daily peaks and some unusually low days, suggesting weather patterns are unpredictable during this time. As temperatures fall and daylight decreases in November, daily ridership drops sharply, reflecting the seasonal shift toward colder, shorter, and more unpredictable days. 
+
+Overall, the chart highlights a clear correlation: as temperatures rise, ridership increases, and as temperatures fall, ridership declines. This seasonal pattern is a crucial variable in understanding CitiBike's demand and planning bike availability throughout the year.
     """)
 
-    # Seasonal Filter (Note: This applies only to this chart.)
     # ---------------------------------------------------------
+    # Seasonal Filter
+    # ---------------------------------------------------------
+    
     season_options = ["All"] + list(daily_df['season'].unique())
 
     st.sidebar.markdown("### Filter by Season")
@@ -154,9 +163,11 @@ elif page == "Daily Rides vs Weather":
         df_filtered = daily_df
     else:
         df_filtered = daily_df.query("season == @season_filter")
-   
+    
+    # ---------------------------------------------------------
     # Plot Chart
     # ---------------------------------------------------------
+    
     # Create a subplot with two y-axes
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 
@@ -199,25 +210,75 @@ elif page == "Daily Rides vs Weather":
     # Display in Streamlit
     st.plotly_chart(fig, use_container_width=True)
 
+    # ---------------------------------------------------------
+    # Image
+    # ---------------------------------------------------------
+    st.image("04_Analysis/Visualizations/rides_vs_weather")
+    
+
 ################################################ CitiBike NYC: Trip Duration by Rider Type (1–65 Minutes) ################################################
 
 ## Box Plot
 # ---------------------------------------------------------
-# Setup sidebar link
 elif page == "Trip Duration":
-    st.header("Trip Duration by Rider Type")
 
-    # Insights of the chart
-    # ---------------------------------------------------------
+    # --------------------------------
+    # TITLE
+    # --------------------------------
+    title_left, title_center, title_right = st.columns([0.38, 1, 0.62])
+    with title_center:
+        st.markdown(
+            """
+            <h1 style='
+                text-align:center;
+                font-size:46px;
+                margin-top:0px;
+                margin-bottom:10px;
+            '>
+                CitiBike NYC — Trip Duration by Rider Type
+            </h1>
+            """,
+            unsafe_allow_html=True
+        )
+
+    # --------------------------------
+    # KEY INSIGHTS
+    # --------------------------------
     st.markdown("""
+    ### Key Insights
 
-    Need to write something
-     
-         """)
+    Trip duration provides a clear look into CitiBike’s customer behavior and how different rider groups use the system. 
+    From the box plot, there is an immediate distinction between Member and Casual riders. Members tend to take shorter, 
+    more consistent trips that align with routine, purpose‑driven travel. Casual riders, on the other hand, take longer 
+    and more variable trips, reflecting leisure‑oriented behavior and more flexible travel patterns.
 
-    # Display Box Plot chart image
-    # ---------------------------------------------------------
-    st.image("04_Analysis/Visualizations/tripduration_boxplot_static.png", use_container_width=True)
+    These differences help clarify how each group engages with the system and what types of trips they rely on CitiBike for. 
+    Together, the trip duration summary and box plot offer a concise view of how long bikes remain in use and how usage differs 
+    by rider type — an important piece of understanding overall demand and how the system is used throughout the city.
+    """)
+
+    # --------------------------------
+    # TWO-COLUMN LAYOUT
+    # --------------------------------
+    col1, col2 = st.columns([2, 1])
+
+    with col1:
+        st.image(
+            "04_Analysis/Visualizations/tripduration_boxplot_static.png",
+            use_column_width=True
+        )
+
+    with col2:
+        st.markdown("""
+        ### Trip Duration Summary (1–65 Minutes)
+
+        - **Median trip duration:** 10.0 minutes  
+        - **Typical trip range (25th–75th percentile):** 5.8–17.4 minutes  
+        - **Average trip duration:** 13.3 minutes  
+        - **Shortest trip:** 1.0 minute  
+        - **Longest trip:** 65.4 minutes  
+        """)
+
 
 ################################################ CitiBike NYC Top Stations Chart ################################################
 
