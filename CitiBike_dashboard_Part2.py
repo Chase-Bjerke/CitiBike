@@ -133,22 +133,60 @@ Use the **Navigate to** in the sidebar to move between sections.
 
 # Setup sidebar link
 elif page == "Daily Rides vs Weather":
-    st.header("Daily Rides and Temperature Trends")
 
+    # --------------------------------
+    # TITLE (matches Overview styling)
+    # --------------------------------
+    title_left, title_center, title_right = st.columns([0.38, 1, 0.62])
+    with title_center:
+        st.markdown(
+            """
+            <h1 style='
+                text-align:center;
+                font-size:46px;
+                margin-top:0px;
+                margin-bottom:10px;
+            '>
+                Daily Rides vs Weather
+            </h1>
+            """,
+            unsafe_allow_html=True
+        )
+
+    # --------------------------------
+    # CENTERED + SMALLER IMAGE BELOW TITLE
+    # --------------------------------
+    img_left, img_center, img_right = st.columns([1, 2, 1])
+    with img_center:
+        st.image(
+            "04_Analysis/Visualizations/rides_vs_weather.jpg",
+            width=450   # <<< MATCHES OVERVIEW PAGE SCALE
+        )
+
+    # --------------------------------
+    # INSIGHTS
+    # --------------------------------
     st.markdown("""
-    Key Trends
+    ### Key Trends
 
-The dual‑axis chart below shows a strong seasonal relationship between temperature and Citi Bike ridership. The warmer days consistently have a higher ride volume, whereas colder seasons see a predictable decline. This pattern is especially visible from March through September, when rising temperatures coincide with a steady increase in daily rides.
+    The dual‑axis chart below shows a strong seasonal relationship between temperature and Citi Bike ridership. 
+    Warmer days consistently have higher ride volume, while colder seasons see a predictable decline. This pattern 
+    is especially visible from March through September, when rising temperatures coincide with a steady increase 
+    in daily rides.
 
-CitiBike's peak ridership occurs during the late summer and early fall, with September showing both some of the highest daily peaks and some unusually low days, suggesting weather patterns are unpredictable during this time. As temperatures fall and daylight decreases in November, daily ridership drops sharply, reflecting the seasonal shift toward colder, shorter, and more unpredictable days. 
+    CitiBike's peak ridership occurs during the late summer and early fall, with September showing both some of 
+    the highest daily peaks and some unusually low days, suggesting weather patterns are unpredictable during 
+    this time. As temperatures fall and daylight decreases in November, daily ridership drops sharply, reflecting 
+    the seasonal shift toward colder, shorter, and more unpredictable days.
 
-Overall, the chart highlights a clear correlation: as temperatures rise, ridership increases, and as temperatures fall, ridership declines. This seasonal pattern is a crucial variable in understanding CitiBike's demand and planning bike availability throughout the year.
+    Overall, the chart highlights a clear correlation: as temperatures rise, ridership increases, and as temperatures 
+    fall, ridership declines. This seasonal pattern is a crucial variable in understanding CitiBike's demand and 
+    planning bike availability throughout the year.
     """)
 
     # ---------------------------------------------------------
     # Seasonal Filter
     # ---------------------------------------------------------
-    
     season_options = ["All"] + list(daily_df['season'].unique())
 
     st.sidebar.markdown("### Filter by Season")
@@ -163,15 +201,12 @@ Overall, the chart highlights a clear correlation: as temperatures rise, ridersh
         df_filtered = daily_df
     else:
         df_filtered = daily_df.query("season == @season_filter")
-    
+
     # ---------------------------------------------------------
     # Plot Chart
     # ---------------------------------------------------------
-    
-    # Create a subplot with two y-axes
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 
-    # Add the daily bike rides line (left y-axis)
     fig.add_trace(
         go.Scatter(
             x=df_filtered["date"],
@@ -182,7 +217,6 @@ Overall, the chart highlights a clear correlation: as temperatures rise, ridersh
         secondary_y=False
     )
 
-    # Add the average temperature line (right y-axis)
     fig.add_trace(
         go.Scatter(
             x=df_filtered["date"],
@@ -193,27 +227,20 @@ Overall, the chart highlights a clear correlation: as temperatures rise, ridersh
         secondary_y=True
     )
 
-    # Update layout
     fig.update_layout(
-    title="Daily CitiBike Rides and Temperature in NYC (2022)",
-    xaxis_title="Date",
-    template="plotly_white",
-    height=600,
-    width=1000,
-    legend_title="Metrics"
+        title="Daily CitiBike Rides and Temperature in NYC (2022)",
+        xaxis_title="Date",
+        template="plotly_white",
+        height=600,
+        width=1000,
+        legend_title="Metrics"
     )
 
-    # Label the y-axes
     fig.update_yaxes(title_text="Daily Bike Rides", secondary_y=False)
     fig.update_yaxes(title_text="Temperature (°F)", secondary_y=True)
 
-    # Display in Streamlit
     st.plotly_chart(fig, use_container_width=True)
 
-    # ---------------------------------------------------------
-    # Image
-    # ---------------------------------------------------------
-    st.image("04_Analysis/Visualizations/rides_vs_weather.jpg")
     
 
 ################################################ CitiBike NYC: Trip Duration by Rider Type (1–65 Minutes) ################################################
@@ -272,8 +299,7 @@ elif page == "Trip Duration":
         st.markdown("""
         ### Trip Duration Summary (1–65 Minutes)
 
-        - **Median trip duration:** 10.0 minutes  
-        - **Typical trip range (25th–75th percentile):** 5.8–17.4 minutes  
+        - **Median trip duration:** 10.0 minutes   
         - **Average trip duration:** 13.3 minutes  
         - **Shortest trip:** 1.0 minute  
         - **Longest trip:** 65.4 minutes  
