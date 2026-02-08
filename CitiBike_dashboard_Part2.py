@@ -345,7 +345,7 @@ elif page == "Top Stations":
             """,
             unsafe_allow_html=True
         )
-        st.image("04_Analysis/Visualizations/top_stations.jpg")  # let it render full size first
+        st.image("04_Analysis/Visualizations/top_station.jpg")  # let it render full size first
         st.markdown("</div>", unsafe_allow_html=True)
 
     # --------------------------------
