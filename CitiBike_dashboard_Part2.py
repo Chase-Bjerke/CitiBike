@@ -122,7 +122,7 @@ The analysis is organized into several pages, each focusing on a key aspect of s
 - **Recommendations**  
   Summarizes opportunities to improve distribution, expand capacity, and support future growth.
 
-Use the **Navigate to** in the sidebar to move between sections.
+NOTE: Use the **Navigate to** in the sidebar to move between sections.
 """)
  
 ################################################ CitiBike NYC Daily Rides vs Temperature Chart ################################################
