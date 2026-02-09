@@ -17,7 +17,7 @@ st.set_page_config(page_title="CitiBike Strategy Dashboard", layout="wide")
 # Sidebar navigation
 page = st.sidebar.radio(
     "Navigate to:",
-    ["Overview", "Daily Rides vs Weather", "Trip Duration", "Top Stations", "Trip Hotspots", "Recommendations"]
+    ["Overview", "Daily Rides vs Weather", "Trip Duration", "Top Stations", "Trip Hotspots", "Insights and Recommendations"]
 )
 
 ################################################ Import Prepared data ################################################
