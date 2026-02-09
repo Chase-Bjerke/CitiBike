@@ -171,6 +171,8 @@ elif page == "Daily Rides vs Weather":
     Overall, the chart highlights a clear correlation: as temperatures rise, ridership increases, and as temperatures 
     fall, ridership declines. This seasonal pattern is a crucial variable in understanding CitiBike's demand and 
     planning bike availability throughout the year.
+
+    NOTE: Use the "Filter by Season" section in the sidebar to navigate various seasons.
     """)
 
     # ---------------------------------------------------------
@@ -437,12 +439,52 @@ elif page == "Trip Hotspots":
 ## Recommendations Page
 # ---------------------------------------------------------
 # Setup sidebar link
-elif page == "Recommendations":
-    st.header("Recommendations")
+elif page == "Insights & Recommendations":
 
-    ### Insights of the chart
+    # --------------------------------
+    # TITLE
+    # --------------------------------
+    title_left, title_center, title_right = st.columns([0.38, 1, 0.62])
+    with title_center:
+        st.markdown(
+            """
+            <h1 style='text-align:center; font-size:46px; margin-top:0px; margin-bottom:10px;'>
+                Insights & Recommendations
+            </h1>
+            """,
+            unsafe_allow_html=True
+        )
+
+    # --------------------------------
+    # INSIGHTS
+    # --------------------------------
     st.markdown("""
+### Insights
 
-    Need to write something
-     
-         """)
+The weather has a clear and predictable impact on CitiBike ridership. Colder temperatures consistently reduce daily ride counts, while warmer seasons support higher usage. November is a strong example: ridership remains high early in the month, but once temperatures drop, the number of rides falls sharply. This lower demand period continues through mid-April, when warmer weather brings ridership back up. These seasonal shifts highlight the importance of adjusting bike distribution throughout the year.
+
+Customer type also plays a role in how the system is used. Members tend to take more short trips compared to casual riders, suggesting that membership behavior is tied to quick, routine travel rather than longer recreational rides. Understanding these patterns can help tailor incentives and operational decisions to better support each rider group.
+
+The most popular stations and the top routes provide a clear picture of where demand is concentrated. High traffic areas, especially those with strong public transportation access, heavy foot traffic, and intuitive bike-friendly paths, consistently appear at the top of both lists. These insights help identify where additional stations, more docks, or increased bike availability would have the greatest impact.
+""")
+
+    # --------------------------------
+    # RECOMMENDATIONS
+    # --------------------------------
+    st.markdown("""
+### Recommendations
+
+During the colder months, when overall ridership drops, bikes should be prioritized at the most consistently popular stations. This ensures that the riders who continue using the system during the off‑season still have reliable access. In contrast, during the peak spring and summer seasons, CitiBike should consider adding more stations or expanding existing ones in the high‑demand areas identified in the analysis.
+
+Given that members take more short trips, CitiBike could explore seasonal promotions tailored to this group. During peak months, small incentives, such as discounts for returning bikes to specific stations, could help reduce the need for frequent restocking. In the off‑season, stronger incentives or cost‑saving promotions could help boost ridership when demand naturally declines.
+
+A rewards or points system for members could also encourage more consistent usage throughout the year. Offering higher rewards during the down‑season would help balance demand and keep riders engaged.
+
+Finally, understanding the top stations and most frequently traveled routes provides a roadmap for operational planning. These insights can guide decisions about where to place new stations, where to increase dock capacity, and where to allocate more bikes to keep up with demand. Strengthening the busiest corridors, especially those around transit hubs, waterfronts, and Central Park, would support the natural flow of rider behavior and improve overall system reliability.
+""")
+
+    # --------------------------------
+    # IMAGE
+    # --------------------------------
+    st.image("04_Analysis/Visualizations/recommendations.jpg", use_column_width=True)
+
