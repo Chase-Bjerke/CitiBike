@@ -374,7 +374,7 @@ The top 20 CitiBike stations represent the busiest points in the network, reflec
     ))
 
     fig.update_layout(
-        title="Top 20 Most Popular CitiBike Stations in NYC",
+        title="Top 20 Stations",
         xaxis_title="Ride Count",
         yaxis_title="Station Name",
         template="plotly_white",
