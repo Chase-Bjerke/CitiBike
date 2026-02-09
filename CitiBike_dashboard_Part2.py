@@ -331,7 +331,7 @@ elif page == "Top Stations":
     # --------------------------------
     # IMAGE
     # --------------------------------
-    img_left, img_center, img_right = st.columns([1, 2, 1])
+    img_left, img_center, img_right = st.columns([0.38, 1, 0.62])
     with img_center:
         st.markdown(
             """
@@ -345,14 +345,14 @@ elif page == "Top Stations":
             """,
             unsafe_allow_html=True
         )
-        st.image("04_Analysis/Visualizations/top station.jpg")  # let it render full size first
+        st.image("04_Analysis/Visualizations/top station.jpg")
         st.markdown("</div>", unsafe_allow_html=True)
 
     # --------------------------------
     # INSIGHTS
     # --------------------------------
     st.markdown("""
-    The top 20 CitiBike stations 
+The top 20 CitiBike stations represent the busiest points in the network, reflecting where large numbers of people move through the city each day. These stations tend to be located in areas with dense foot traffic, strong transit connections, and easy‑to‑spot locations that riders naturally encounter as they move through the area. The pattern aligns with the broader spatial trends seen in the Geographic Trip Hotspots map, where Midtown, Lower Manhattan, and key waterfront areas emerge as consistent activity centers. Together, these high‑volume stations illustrate where CitiBike demand is most concentrated and where the system experiences the greatest day‑to‑day pressure to keep bikes available.
     """)
 
     # --------------------------------
@@ -383,24 +383,43 @@ elif page == "Top Stations":
 
     st.plotly_chart(fig, use_container_width=True)
 
-
 ################################################ CitiBike NYC Trip Hotspots (500 Busiest Routes) ################################################
 
 ## Trip Flow Map
 # ---------------------------------------------------------
 # Setup sidebar link
 elif page == "Trip Hotspots":
-    st.subheader("NYC CitiBike – Top 500 Trip Flows")
+
+    # --------------------------------
+    # TITLE
+    # --------------------------------
+    title_left, title_center, title_right = st.columns([0.38, 1, 0.62])
+    with title_center:
+        st.markdown(
+            """
+            <h1 style='
+                text-align:center;
+                font-size:46px;
+                margin-top:0px;
+                margin-bottom:10px;
+            '>
+                NYC CitiBike – Top 500 Trip Routes
+            </h1>
+            """,
+            unsafe_allow_html=True
+        )
 
     # Insights of the chart
     # ---------------------------------------------------------
     st.markdown("""
 
-    Need to write something
+    The top 500 CitiBike trip flows reveal the strongest routes in the network, highlighting where riders most frequently travel between stations. These patterns cluster around Midtown, Lower Manhattan, and key waterfront areas, reflecting a mix of commuter routes, short neighborhood hops, and popular recreational pathways. These trip patterns also align with the station‑level trends shown on the “Top 20 Stations” page, reinforcing how rider activity concentrates around areas with heavy foot traffic, strong transit access, and well‑established bike‑friendly routes. A noticeable cluster of high‑volume routes appears along the southern edge of Central Park, where several nearby stations consistently rank among the busiest in the system.
+
+    NOTE: You can use the left‑side editing panel to access the filter options; it opens by default and can be collapsed with the arrow button. The small panel in the top‑right corner of the map provides quick access to basic map controls.
      
          """)
 
-    st.subheader("NYC CitiBike – Top 500 Trip Flows")
+    st.subheader("Top 500 Trips")
 
     path_to_html = "02_Data/Prepared_Data/kepler.gl.html"
 
