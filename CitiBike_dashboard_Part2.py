@@ -470,21 +470,21 @@ The weather has a clear and predictable impact on CitiBike ridership. Colder tem
     st.markdown("""
 ### Recommendations
 
-During the colder months, when overall ridership drops, bikes should be prioritized at the most consistently popular stations. This ensures that the riders who continue using the system during the off‑season still have reliable access. In contrast, during the peak spring and summer seasons, CitiBike should consider adding more stations or expanding existing ones in the high‑demand areas identified in the analysis. Given that members take more short trips, CitiBike could explore seasonal promotions tailored to this group. During peak months, small incentives, such as discounts for returning bikes to specific stations, could help reduce the need for frequent restocking. In the off‑season, stronger incentives or cost‑saving promotions could help boost ridership when demand naturally declines. A rewards or points system for members could also encourage more consistent usage throughout the year. Offering higher rewards during the down‑season would help balance demand and keep riders engaged. Finally, understanding the top stations and most frequently traveled routes provides a roadmap for operational planning. These insights can inform decisions about where to place new stations, where to expand dock capacity, and where to allocate additional bikes to meet demand. Strengthening the busiest corridors, particularly those surrounding transit hubs, waterfronts, and Central Park, would support the natural flow of rider behavior and enhance overall system reliability.
+During the colder months, when overall ridership drops, bikes should be prioritized at the most consistently popular stations. This ensures that the riders who continue using the system during the off‑season still have reliable access. In contrast, during the peak spring and summer seasons, CitiBike should consider adding more stations or expanding existing ones in the high‑demand areas identified in the analysis.
+
+Given that members take more short trips, CitiBike could explore seasonal promotions tailored to this group. During peak months, small incentives, such as discounts for returning bikes to specific stations, could help reduce the need for frequent restocking. In the off‑season, stronger incentives or cost‑saving promotions could help boost ridership when demand naturally declines. A rewards or points system for members could also encourage more consistent usage throughout the year. Offering higher rewards during the down‑season would help balance demand and keep riders engaged. Finally, understanding the top stations and most frequently traveled routes provides a roadmap for operational planning. These insights can inform decisions about where to place new stations, where to expand dock capacity, and where to allocate additional bikes to meet demand. Strengthening the busiest corridors, particularly those surrounding transit hubs, waterfronts, and Central Park, would support the natural flow of rider behavior and enhance overall system reliability.
 """)
 
     # --------------------------------
-    # IMAGE
+    # IMAGE (small + centered)
     # --------------------------------
-        img_left, img_center, img_right = st.columns([1, 2, 1])
+    img_left, img_center, img_right = st.columns([1, 2, 1])
     with img_center:
-    st.markdown(
-        """
+        st.markdown(
+            """
             <div style='text-align:center; margin-top:10px; margin-bottom:20px;'>
             """,
             unsafe_allow_html=True
         )
         st.image("04_Analysis/Visualizations/recommendations.jpg", width=420)
         st.markdown("</div>", unsafe_allow_html=True)
-
-
