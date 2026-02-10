@@ -476,5 +476,15 @@ During the colder months, when overall ridership drops, bikes should be prioriti
     # --------------------------------
     # IMAGE
     # --------------------------------
-    st.image("04_Analysis/Visualizations/recommendations.jpg", use_column_width=True)
+        img_left, img_center, img_right = st.columns([1, 2, 1])
+    with img_center:
+    st.markdown(
+        """
+            <div style='text-align:center; margin-top:10px; margin-bottom:20px;'>
+            """,
+            unsafe_allow_html=True
+        )
+        st.image("04_Analysis/Visualizations/recommendations.jpg", width=420)
+        st.markdown("</div>", unsafe_allow_html=True)
+
 
