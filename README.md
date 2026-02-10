@@ -135,3 +135,5 @@ https://citibike-4app9pxamtuuyrqmhstmttp.streamlit.app/
 - CitiBike_dashboard.py  
 - requirements.txt  
 - README.md
+
+Disclaimer: This dashboard and analysis are for educational and demonstration purposes only and are not affiliated with or endorsed by CitiBike or Lyft.
